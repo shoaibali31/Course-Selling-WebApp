@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #0E1012;
-    font-family: Arial, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .container1 {
@@ -32,7 +32,7 @@ body {
     padding: 10px 20px;
     background-color: white;
     border-radius: 0 0 10px 10px;
-    font-family: Gill Sans, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 form {
@@ -42,7 +42,7 @@ form {
     gap: 20px;
 }
 
-input[type="text"],
+input[type="email"],
 input[type="password"] {
     padding: 12px;
     border: 3px solid white;
@@ -51,6 +51,7 @@ input[type="password"] {
     font-size: 16px;
     outline: none;
     background-color: transparent;
+    color: white;
 }
 
 .wrapper {
@@ -61,8 +62,9 @@ input[type="password"] {
 
 label {
     position: absolute;
-    left: 10px;
-    color: #ffffff;
+    left: 20px;
+    color: #ffffff80;
+    pointer-events: none;
     transition: .2s;
 }
 
@@ -70,20 +72,6 @@ i {
     position: absolute;
     right: 15px;
     color: #ffffff;
-}
-
-.remember_box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.remember {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    color: white;
 }
 
 button {
@@ -94,7 +82,12 @@ button {
     font-size: 16px;
     border-radius: 25px;
     cursor: pointer;
-    font-family: Gill Sans, sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+button:hover {
+    background-color: #ccc;
+    color: white;
+    
 }
 
 input:valid+label,
@@ -108,7 +101,11 @@ input:focus+label {
 }
 
 a {
-    color: white;
+    color: #00baff;
+}
+a:hover{
+    color: lightskyblue;
+    transition: 0.25s ease;
 }
 
 .signup {
@@ -138,4 +135,29 @@ header::after {
     top: 0;
     box-shadow: -15px 0 0 0 white;
     border-top-left-radius: 50%;
+}
+
+
+.remember_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: white;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 15px; 
+    cursor: pointer;
+    color: white;
+}
+#togglePassword:hover {
+    color: #00baff;
 }

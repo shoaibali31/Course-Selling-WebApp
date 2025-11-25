@@ -1,0 +1,67 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="signup-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Sign Up</h2>
+        </header>
+        <div class="form-container">
+            <form action="http://localhost:3000/api/v1/user/signup" method="POST">
+                <!-- FIRST NAME -->
+                <div class="wrapper">
+                    <input type="text" id="firstname" name="firstname" class="input" required>
+                    <label for="firstname">First Name</label>
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <!-- LAST NAME -->
+                <div class="wrapper">
+                    <input type="text" id="lastname" name="lastname" class="input" required>
+                    <label for="lastname">Last Name</label>
+                    <i class="fa fa-user"></i>
+                </div>
+
+                <div class="wrapper">
+                    <input type="email" id="email" name="email" class="input" required>
+                    <label for="email">Email</label>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+
+                <div class="wrapper">
+                    <input type="password" id="password" name="password" class="input" required>
+                    <label for="password">Password</label>
+                    <i class="fa fa-eye" id="togglePassword"></i>
+                </div>
+
+                <button>Submit</button>
+
+                <div class="signin">
+                    Already have an account? <a href="http://127.0.0.1:5500/signin-form.html">Signin</a>
+                </div>
+                <script>
+                    const password = document.getElementById("password");
+                    const toggle = document.getElementById("togglePassword");
+
+                    toggle.addEventListener("click", () => {
+                        const type = password.getAttribute("type") === "password" ? "text" : "password";
+                        password.setAttribute("type", type);
+
+                        // Change icon
+                        toggle.classList.toggle("fa-eye");
+                        toggle.classList.toggle("fa-eye-slash");
+                    });
+                </script>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
