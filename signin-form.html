@@ -1,58 +1,63 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Signin</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="signin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="index.js"></script>
 </head>
+
 <body>
     <div class="container1">
         <header>
             <h2>Sign in</h2>
         </header>
-            <form action="http://localhost:3000/api/v1/user/signin" method="POST">
-                <div class="wrapper">
-                    <input type="email" id="email" required>
-                    <label for="email">Email</label>
-                    <i class="fa fa-user" aria-hidden="true"></i>
+        <form action="https://course-selling-webapp-9i51.onrender.com/api/v1/user/signin" method="POST">
+            <div class="wrapper">
+                <input type="email" id="email" required>
+                <label for="email">Email</label>
+                <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+
+            <div class="wrapper">
+                <input type="password" id="password" required>
+                <label for="password">Password</label>
+                <i class="fa fa-eye" id="togglePassword"></i>
+            </div>
+
+            <div class="remember_box">
+                <div class="remember">
+                    <input type="checkbox"> Remember Me
                 </div>
+                <a href="#">Forgot Password?</a>
+            </div>
 
-                <div class="wrapper">
-                    <input type="password" id="password" required>
-                    <label for="password">Password</label>
-                    <i class="fa fa-eye" id="togglePassword"></i>
-                </div>
+            <button>Sign in</button>
 
-                <div class="remember_box">
-                    <div class="remember">
-                        <input type="checkbox"> Remember Me
-                    </div>
-                    <a href="#">Forgot Password?</a>
-                </div>
+            <div class="signup">
+                Don't have an account? <a
+                    href="https://course-selling-webapp-9i51.onrender.com/api/v1/user/signup">Signup</a>
+            </div>
+            <script>
+                const password = document.getElementById("password");
+                const toggle = document.getElementById("togglePassword");
 
-                <button>Sign in</button>
+                toggle.addEventListener("click", () => {
+                    const type = password.getAttribute("type") === "password" ? "text" : "password";
+                    password.setAttribute("type", type);
 
-                <div class="signup">
-                    Don't have an account? <a href="http://127.0.0.1:5500/signup-form.html">Signup</a>
-                </div>
-                <script>
-                    const password = document.getElementById("password");
-                    const toggle = document.getElementById("togglePassword");
-
-                    toggle.addEventListener("click", () => {
-                        const type = password.getAttribute("type") === "password" ? "text" : "password";
-                        password.setAttribute("type", type);
-
-                        // Change icon
-                        toggle.classList.toggle("fa-eye");
-                        toggle.classList.toggle("fa-eye-slash");
-                    });
-                </script>
-            </form>
+                    // Change icon
+                    toggle.classList.toggle("fa-eye");
+                    toggle.classList.toggle("fa-eye-slash");
+                });
+            </script>
+        </form>
     </div>
 </body>
+
 </html>
