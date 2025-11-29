@@ -9,7 +9,6 @@
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="signin-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="index.js"></script>
 </head>
 
 <body>
@@ -42,51 +41,51 @@
 
             <div class="signup">
                 Don't have an account? <a
-                    href="https://course-selling-webapp-9i51.onrender.com/api/v1/user/signup">Signup</a>
+                    href="signup-form.html">Signup</a>
             </div>
-            <script>
-                const password = document.getElementById("password");
-                const toggle = document.getElementById("togglePassword");
-
-                toggle.addEventListener("click", () => {
-                    const type = password.getAttribute("type") === "password" ? "text" : "password";
-                    password.setAttribute("type", type);
-
-                    // Change icon
-                    toggle.classList.toggle("fa-eye");
-                    toggle.classList.toggle("fa-eye-slash");
-                });
-            </script>
         </form>
-        <script>
-            document.getElementById("signinForm").addEventListener("submit", async function(e) {
-                e.preventDefault();
-
-                const body = {
-                    email: document.getElementById("email").value,
-                    password: document.getElementById("password").value
-                };
-
-                const res = await fetch(
-                    "https://course-selling-webapp-9i51.onrender.com/api/v1/user/signin",
-                    {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(body)
-                    }
-                );
-
-                const data = await res.json();
-
-                if (data.token) {
-                    localStorage.setItem("token", data.token);
-                    alert("Login success!");
-                } else {
-                    alert(data.message);
-                }
-            });
-        </script>
     </div>
+    <script>
+        const password = document.getElementById("password");
+        const toggle = document.getElementById("togglePassword");
+
+        toggle.addEventListener("click", () => {
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            // Change icon
+            toggle.classList.toggle("fa-eye");
+            toggle.classList.toggle("fa-eye-slash");
+        });
+    </script>
+    <script>
+        document.getElementById("signinForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+
+            const body = {
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            };
+
+            const res = await fetch(
+                "https://course-selling-webapp-9i51.onrender.com/api/v1/user/signin",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(body)
+                }
+            );
+
+            const data = await res.json();
+
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                alert("Login success!");
+            } else {
+                alert(data.message);
+            }
+        });
+    </script>
 </body>
 
 </html>
